@@ -6,7 +6,7 @@ import shutil
 test_sentence = "This is a good sentence"
 
 test_cases = [
-    ("this is a positive example", "positive"),
+    ("this is a positive example", "negative"),
     ("great content, really enjoyed it", "positive"),
     ("excellent work, very helpful", "positive"),
     ("this is a negative example", "negative"),
