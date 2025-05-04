@@ -27,6 +27,7 @@ jobs:
 
     - name: Install dependencies
       run: |
+        cd text_classification
         pip install poetry
         poetry config virtualenvs.create false
         poetry install
