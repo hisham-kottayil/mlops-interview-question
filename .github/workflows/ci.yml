@@ -65,4 +65,4 @@ jobs:
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-        SLACK_MESSAGE: "💪 GitHub Action success for ${{ github.repository }} on branch ${{ github.ref }}."    
+        SLACK_MESSAGE: "✅ GitHub Action success for ${{ github.repository }} on branch ${{ github.ref }}."    
