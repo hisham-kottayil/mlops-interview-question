@@ -10,6 +10,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    services:
+      docker:
+        image: docker:20.10.16
+        options: --privileged
+        
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
