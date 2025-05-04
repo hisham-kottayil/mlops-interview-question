@@ -24,6 +24,19 @@ jobs:
       with:
         python-version: '3.11.12'
 
+
+    - name: Install dependencies
+      run: |
+        cd text_classification
+        pip install poetry
+        poetry install
+
+    - name: Run Tests
+      run: |
+        cd text_classification
+        poetry run pytest
+
+
     - name: Set up Docker Compose
       run: |
         cd text_classification
@@ -36,7 +49,4 @@ jobs:
         docker compose down
         docker compose up --build -d
 
-    - name: Run Tests inside container
-      run: |
-        cd text_classification
-        docker exec serve poetry run pytest
+
