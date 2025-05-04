@@ -52,4 +52,11 @@ jobs:
     - name: Testing inside docker
       run: |
         docker exec text_predictor poetry run pytest
+        
+    - name: Slack Notification on Failure
+      if: failure()
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_MESSAGE: "❌ GitHub Action failed for ${{ github.repository }} on branch ${{ github.ref }}."    
 
