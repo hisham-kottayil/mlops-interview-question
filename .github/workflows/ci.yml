@@ -21,18 +21,23 @@ jobs:
 
     - name: Set up Docker Compose
       run: |
+        cd text_classification
         docker --version
         docker-compose --version
 
     - name: Build and start services
       run: |
+        cd text_classification
         docker-compose down
         docker-compose up --build -d
 
     - name: Run Tests inside container
       run: |
+        cd text_classification
         docker exec serve poetry run pytest
 
     - name: Shut down containers
       if: always()
-      run: docker-compose down
+      run: |
+        cd text_classification
+        docker-compose down
