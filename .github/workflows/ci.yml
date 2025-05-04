@@ -51,6 +51,7 @@ jobs:
 
     - name: Testing inside docker
       run: |
-        docker exec serve poetry run test_classification/pytest
+        docker exec -it text_predictor bash
+        poetry run pytest
 
 
