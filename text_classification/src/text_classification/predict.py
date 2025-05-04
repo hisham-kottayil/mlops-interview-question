@@ -12,7 +12,7 @@ def predict_text(text: str, model) -> typing.Optional[str]:
     Returns:
         The predicted class label ("positive" or "negative") or None if prediction fails.
     """
-
+    
     if model is None:
         print("Model is not loaded. Cannot predict.")
         return None
@@ -23,3 +23,4 @@ def predict_text(text: str, model) -> typing.Optional[str]:
     except Exception as e:
         print(f"Error during prediction: {e}")
         return None
+ 

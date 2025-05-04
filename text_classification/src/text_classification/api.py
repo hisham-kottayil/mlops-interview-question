@@ -7,6 +7,7 @@ class inputData(BaseModel):
     sentence: str
 
 model = load_model()
+
 app = FastAPI()
 
 @app.post('/predict')

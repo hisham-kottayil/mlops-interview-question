@@ -3,7 +3,7 @@ name = "text-classification"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "Your Name",email = "you@example.com"}
+    {name = "Hisham",email = "hishamkottayil@gmail.com"}
 ]
 readme = "README.md"
 requires-python = ">=3.10"
@@ -17,6 +17,10 @@ dependencies = [
 ]
 
 [tool.poetry]
+name = "classification"
+version = "0.1.0"
+description = "Text classification with scikit-learn"
+authors = ["hishamkottayil@gmail.com"]
 packages = [{include = "text_classification", from = "src"}]
 
 
