@@ -34,4 +34,5 @@ jobs:
 
     - name: Run Tests
       run: |
-        poetry run pytest --disable-warnings --maxfail=1
+        cd text_classification
+        poetry run pytest
