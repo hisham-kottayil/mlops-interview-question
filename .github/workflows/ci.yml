@@ -6,7 +6,6 @@ on:
   pull_request:
     branches: [ master ]
 
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -20,13 +19,20 @@ jobs:
       with:
         python-version: '3.11.12'
 
-    - name: Install dependencies
+    - name: Set up Docker Compose
       run: |
-        cd text_classification
-        pip install poetry
-        poetry install
+        docker --version
+        docker-compose --version
 
-    - name: Run Tests
+    - name: Build and start services
       run: |
-        cd text_classification
-        poetry run pytest
+        docker-compose down
+        docker-compose up --build -d
+
+    - name: Run Tests inside container
+      run: |
+        docker exec serve poetry run pytest
+
+    - name: Shut down containers
+      if: always()
+      run: docker-compose down
