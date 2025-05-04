@@ -15,7 +15,7 @@ def predict(body: inputData):
     prediction = predict_text(body.sentence, model)
     # prediction = None
     if prediction is None:
-        raise HTTPException(status_code = 500, detail = "Prediction failed")
+        raise HTTPException(status_code = 500, detail = "Prediction has failed")
     return {
         "text": body.sentence,
         "prediction": prediction
