@@ -35,9 +35,3 @@ jobs:
       run: |
         cd text_classification
         docker exec serve poetry run pytest
-
-    - name: Shut down containers
-      if: always()
-      run: |
-        cd text_classification
-        docker-compose down
