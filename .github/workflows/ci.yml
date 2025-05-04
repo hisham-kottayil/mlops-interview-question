@@ -37,16 +37,20 @@ jobs:
         poetry run pytest
 
 
-    # - name: Set up Docker Compose
-    #   run: |
-    #     cd text_classification
-    #     docker --version
-    #     docker compose --version
+    - name: Set up Docker Compose
+      run: |
+        cd text_classification
+        docker --version
+        docker compose --version
 
-    # - name: Build and start services
-    #   run: |
-    #     cd text_classification
-    #     docker compose down
-    #     docker compose up --build -d
+    - name: Build and start services
+      run: |
+        cd text_classification
+        docker compose down
+        docker compose up --build -d
+
+    - name: Testing inside docker
+      run: |
+        docker exec serve poetry run test_classification/pytest
 
 
