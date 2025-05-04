@@ -31,6 +31,7 @@ def train_and_save_model():
         ('clf', LogisticRegression())
     ])
 
+    
     # Train the model
     pipeline.fit(texts, labels)
 
