@@ -53,6 +53,3 @@ jobs:
       run: |
         docker exec text_predictor poetry run pytest
 
-    - name: Bring down docker
-      run: |
-        docker compose down
