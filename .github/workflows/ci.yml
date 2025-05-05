@@ -50,8 +50,14 @@ jobs:
         docker compose up --build -d
 
     - name: Testing inside docker
+      id: docker_test
       run: |
         docker exec text_predictor poetry run pytest
+
+    - name: Redeploying the model
+      if: steps.docker_test.outcome == 'success'
+      run: |
+        docker exec text_predictor poetry run python src/text_classification/train.py
         
     - name: Slack Notification on Failure
       if: failure()
