@@ -21,6 +21,12 @@ def test_null_input():
     input_data = {}
     response = client.post('/predict', json = input_data)
     assert response.status_code == 422, "Invalid input should return status code 422"
+    
+@pytest.mark.parametrize("sentence, expected_outcome", test_cases)
+def test_response_correctness(sentence, expected_outcome):
+    response = client.post('/predict', json = { "sentence": sentence})
+    assert response.status_code == 200, "Expected response status code 200"
+    assert response.json() == {"text": sentence, "prediction": expected_outcome}, "Wrong outcome"
 
 @pytest.mark.parametrize("sentence, expected_outcome", test_cases)
 def test_valid_reponse(sentence, expected_outcome):
@@ -28,9 +34,3 @@ def test_valid_reponse(sentence, expected_outcome):
     assert response.status_code == 200, "Expected response status code 200"
     assert response.json()['prediction'] in ["positive", "negative"], "Expected response from ('positive', 'negative')" 
 
-
-@pytest.mark.parametrize("sentence, expected_outcome", test_cases)
-def test_response_correctness(sentence, expected_outcome):
-    response = client.post('/predict', json = { "sentence": sentence})
-    assert response.status_code == 200, "Expected response status code 200"
-    assert response.json() == {"text": sentence, "prediction": expected_outcome}, "Wrong outcome"

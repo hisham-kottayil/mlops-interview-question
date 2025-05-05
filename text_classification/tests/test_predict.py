@@ -31,7 +31,6 @@ def test_model_type():
     assert isinstance(model, Pipeline), "Loaded model is not an sklearn pipeline"
 
 def test_return_value_type():
-    prediction_possibilities = ["positive", "negative"]
     train.train_and_save_model()
     model = train.load_model()
 
