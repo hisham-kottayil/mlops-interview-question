@@ -56,9 +56,9 @@ def load_model():
         print(f"Error loading model: {e}")
         return None
         
-# def main():
-#     model = load_model()
-#     print("Model loaded:", model)
+def main():
+    model = load_model()
+    print("Model loaded:", model)
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
