@@ -57,8 +57,8 @@ def load_model():
         return None
         
 def main():
-    model = load_model()
-    print("Model loaded:", model)
+    train_and_save_model()
+    print("Model loaded")
 
 if __name__ == "__main__":
     main()
