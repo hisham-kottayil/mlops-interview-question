@@ -21,3 +21,4 @@ def predict(body: inputData):
         "text": body.sentence,
         "prediction": prediction
     }
+
